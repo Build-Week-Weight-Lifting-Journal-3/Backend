@@ -8,7 +8,7 @@ Backend for weight-lifting-journal-3
 2) Create a "New Request".
 3) Select a "GET" request for now.
 4) Use `localhost:5050` for the address.
-5) OR if you are using Herokuu, use this link for the address instead - "".
+5) OR if you are using Heroku, use this link for the address instead - "https://weight-lifting-journal-3.herokuapp.com/".
 6) Send the request.
 7) You should get the message "Welcome to the server!".
 
@@ -25,7 +25,7 @@ JSON requirements for users:
 }
 ```
 
-1) At the end of `localhost:5050` (or the Herokuu link) in your address, put `api/auth` to use authorizationfor these routes. In example `localhost:5050/api/auth`.
+1) At the end of `localhost:5050` (or the Heroku link "https://weight-lifting-journal-3.herokuapp.com/") in your address, put `api/auth` to use authorizationfor these routes. In example `localhost:5050/api/auth`.
 For all of the following instructions you may replace `localhost:5050` with the Herokuu link if you want to use the hosted server.
 
 ## To Register
@@ -89,7 +89,7 @@ For all of the following instructions you may replace `localhost:5050` with the 
 
 ## Get Exercises by Body Region
 
-1) Send a "GET" request to the endpoint `localhost:5050/api/exercises/regions/:region` where region is the muscle group you want to search for. In Example- `chest`, `shoulders`, `legs` etc. Using lowercase for inputting these fields will keep everything working properly.
+1) Send a "GET" request to the endpoint `localhost:5050/api/exercises/regions/:region` where region is the muscle group you want to search for. In Example- `chest`, `shoulders`, `legs` etc. Using lowercase for these fields will keep everything working properly.
 
 # Journals 
 
