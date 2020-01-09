@@ -2,7 +2,7 @@ const server = require("../api/server");
 const request = require("supertest");
 
 describe("Server Tests", () => {
-    describe("GET exercises after authorization", () => {
+    describe("GET users after authorization", () => {
         it("Should return a body", async () => {
             return request(server)
             .post("/api/auth/login")
@@ -11,7 +11,7 @@ describe("Server Tests", () => {
                 const token = res.body.token;
 
                 return request(server)
-                .get("/api/exercises")
+                .get("/api/users")
                 .set("Authorization", token)
                 .then(res => {
                     expect(Array.isArray(res.body)).toBe(true);
@@ -22,8 +22,8 @@ describe("Server Tests", () => {
 });
 
 describe("Server Tests", () => {
-    describe("GET exercises after authorization", () => {
-        it("Should return Bench Press as first exercise", async () => {
+    describe("GET user 1 after authorization", () => {
+        it("Should have proper ID and first/last name for first user", async () => {
             return request(server)
             .post("/api/auth/login")
             .send({ "firstName": "Joshua", "lastName": "Edgerton", "email": "joshuaxedgerton@gmail.com", "password": "pass"})
@@ -31,10 +31,12 @@ describe("Server Tests", () => {
                 const token = res.body.token;
 
                 return request(server)
-                .get("/api/exercises")
+                .get("/api/users/1")
                 .set("Authorization", token)
                 .then(res => {
-                    expect((res.body[0].name)).toBe("Bench Press");
+                    expect(res.body.id).toBe(1),
+                    expect(res.body.firstName).toBe("Joshua"),
+                    expect(res.body.lastName).toBe("Edgerton");
                 });
             });
         });
